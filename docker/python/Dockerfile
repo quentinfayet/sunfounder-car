@@ -1,3 +1,5 @@
 FROM python:3.6
 
 EXPOSE 4242
+
+WORKDIR /server
