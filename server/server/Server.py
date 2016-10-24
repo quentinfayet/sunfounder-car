@@ -1,3 +1,12 @@
+from .network import TcpServer
+
 class Server:
+
+    _tcpServer = None
+
     def __init__(self):
-        print('init server')
+        self._tcpServer = TcpServer()
+
+    def run(self):
+        while True:
+            data = self._tcpServer.receive()

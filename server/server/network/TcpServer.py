@@ -8,7 +8,7 @@ class TcpServer:
     _adress = None
     _socket = None
 
-    def __init__(self, host='', port=21567, buffer_size=1024):
+    def __init__(self, host='', port=4242, buffer_size=1024):
         self._host = host
         self._port = port
         self._buffer_size = buffer_size
