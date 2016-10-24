@@ -4,5 +4,8 @@ services:
   raspbian:
     image: resin/rpi-raspbian:wheezy
 
-  python:
+  python_client:
+    image: python:3.6
+
+  python_server:
     image: python:3.6
