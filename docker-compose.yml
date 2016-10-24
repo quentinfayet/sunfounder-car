@@ -5,7 +5,11 @@ services:
     image: resin/rpi-raspbian:wheezy
 
   python_client:
-    image: python:3.6
+    build:
+      context: .
+      dockerfile: docker/python/Dockerfile
 
   python_server:
-    image: python:3.6
+    build:
+      context: .
+      dockerfile: docker/python/Dockerfile
