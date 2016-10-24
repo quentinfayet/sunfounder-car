@@ -18,8 +18,8 @@ class TcpServer:
     def connect(self, max_pool_connections = 5):
         if self._socket is None:
             self._create_socket();
-        self._socket.bind(self._adress)
-        self._socket.listen(max_pool_connections)
+            self._socket.bind(self._adress)
+            self._socket.listen(max_pool_connections)
 
         print('Server is waiting for connections.')
         while True:

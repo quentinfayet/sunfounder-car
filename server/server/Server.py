@@ -1,6 +1,7 @@
 from .network import TcpServer
+from observable import Observable
 
-class Server:
+class Server(Observable):
 
     _tcpServer = None
 
@@ -8,8 +9,13 @@ class Server:
         self._tcpServer = TcpServer()
 
     def run(self):
-        self._tcpServer.connect()
-
         while True:
-            data = None
-            data = self._tcpServer.receive()
+            self._tcpServer.connect()
+
+            while True:
+                data = None
+                data = self._tcpServer.receive()
+                if data:
+                    self.fire(data)
+                else:
+                    break
