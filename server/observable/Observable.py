@@ -2,9 +2,9 @@ class Observable:
 
     _observers = list()
 
-    def subscribe(self, callback):
-        self._observers.append(callback)
+    def subscribe(self, observer):
+        self._observers.append(observer)
 
     def fire(self, event):
-        for callback in self._observers:
-            callback(event)
+        for observer in self._observers:
+            observer.handle(event)
