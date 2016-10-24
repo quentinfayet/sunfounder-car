@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  raspbian:
+    image: resin/rpi-raspbian:wheezy
+
+  python:
+    image: python:3.6
