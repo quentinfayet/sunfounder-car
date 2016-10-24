@@ -1,5 +1,6 @@
 from .network import TcpServer
 from observable import Observable
+from event import Instruction
 
 class Server(Observable):
 
@@ -16,6 +17,7 @@ class Server(Observable):
                 data = None
                 data = self._tcpServer.receive()
                 if data:
-                    self.fire(data)
+                    instruction = Instruction(data)
+                    self.fire(instruction)
                 else:
                     break
