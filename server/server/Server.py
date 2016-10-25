@@ -25,7 +25,7 @@ class Server(Observable, Observer):
                 data = None
                 data = self._tcpServer.receive()
                 if data:
-                    instruction = Instruction(data, self)
+                    instruction = Instruction(data[:-1], self)
                     self.fire(instruction)
                 else:
                     break

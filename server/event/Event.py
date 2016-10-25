@@ -45,6 +45,7 @@ class Event:
             self._value = JsonValue(raw_value)
             return
         except ValueError:
+            print('not json')
             pass
 
         self._value = Value(raw_value)
