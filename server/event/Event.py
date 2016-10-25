@@ -1,6 +1,6 @@
 from observable import Observer
-from .value import Value
-
+from .value import Value, JsonValue
+import json
 
 class Event:
     """Describes an event. Base class to be inherited from.
@@ -26,7 +26,7 @@ class Event:
         return self._value.get_value()
 
     def respond_to_emmiter(self, event):
-        """Send an event to the emmiter, in case emmiter is an :obj:`Observer`
+        """Sends an event to the emmiter, in case emmiter is an :obj:`Observer`
 
             Args:
                 event (:obj: `Event`): The event to be sent to the emmiter
@@ -34,5 +34,17 @@ class Event:
         if isinstance(self._emmiter, Observer):
             self._emmiter.handle(event)
 
-    def _create_appropriate_value(self, value):
-        self._value = Value(value)
+    def _create_appropriate_value(self, raw_value):
+        """Creates an appropriate object to store the value.
+
+            Args:
+                raw_value (bytes): The raw value
+        """
+        try:
+            json.loads(raw_value)
+            self._value = JsonValue(raw_value)
+            return
+        except ValueError:
+            pass
+
+        self._value = Value(raw_value)
