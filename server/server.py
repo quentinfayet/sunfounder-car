@@ -2,14 +2,25 @@
 # -*- coding: utf-8 -*-
 
 from server import Server
-from robot import Motor
+from controller import Direction
 
 
 def main():
-    motor = Motor()
     server = Server()
-    server.subscribe(motor)
-    server.run()
+    initialize_robot(server).run()
+
+
+def initialize_robot(server):
+    """Initializes all robot connections and subscribes events
+
+        Args:
+            server (:obj: `Server`): The main server
+    """
+    direction = Direction()
+    server.subscribe(direction)
+
+    return server
+
 
 if __name__ == '__main__':
     main()

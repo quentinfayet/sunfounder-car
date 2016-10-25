@@ -1,7 +1,8 @@
+from observable import Observer
 from event import Event
 
 
-class Motor:
+class Direction(Observer):
     def handle(self, event):
         print('Received ', event.get_value())
         response = Event('hello')

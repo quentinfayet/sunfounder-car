@@ -1,3 +1,3 @@
 from __future__ import absolute_import
 
-from .Motor import Motor
+from .Direction import Direction
