@@ -1,5 +1,6 @@
 from observable import Observer
 
+
 class Event:
 
     _value = None

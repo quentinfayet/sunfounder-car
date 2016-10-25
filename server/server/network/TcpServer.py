@@ -1,5 +1,6 @@
 import socket
 
+
 class TcpServer:
 
     _host = None
@@ -15,9 +16,9 @@ class TcpServer:
         self._buffer_size = buffer_size
         self._adress = (self._host, self._port)
 
-    def connect(self, max_pool_connections = 5):
+    def connect(self, max_pool_connections=5):
         if self._socket is None:
-            self._create_socket();
+            self._create_socket()
             self._socket.bind(self._adress)
             self._socket.listen(max_pool_connections)
 
@@ -29,9 +30,8 @@ class TcpServer:
                     print('Connected from ', addr)
                     return
 
-
     def _create_socket(self):
-        self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM);
+        self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def receive(self):
         if self._socket is None:
