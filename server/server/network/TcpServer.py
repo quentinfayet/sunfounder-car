@@ -54,8 +54,7 @@ class TcpServer:
                     return
 
     def _create_socket(self):
-        """Creates the socket.
-        """
+        """Creates the socket."""
         self._socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def receive(self):
@@ -71,4 +70,4 @@ class TcpServer:
         if self._socket is None:
             raise RuntimeError("Socket must be connected first!")
 
-        return self._socketClient.recv(self._buffer_size)
+        return self._socketClient.recv(self._buffer_size).decode('utf-8')

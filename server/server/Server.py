@@ -16,8 +16,7 @@ class Server(Observable, Observer):
         self._tcpServer = TcpServer()
 
     def run(self):
-        """Defines the main server loop.
-        """
+        """Defines the main server loop."""
         while True:
             self._tcpServer.connect()
 
