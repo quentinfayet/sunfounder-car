@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 from server import Server
-from controller import Direction
+from controller import Direction, LightController
 
 
 def main():
@@ -18,6 +18,9 @@ def initialize_robot(server):
     """
     direction = Direction()
     server.subscribe(direction)
+
+    lightController = LightController()
+    server.subscribe(lightController)
 
     return server
 
