@@ -3,6 +3,7 @@
 
 from server import Server
 from controller import Direction, LightController
+import RPi.GPIO as GPIO
 
 
 def main():
@@ -16,6 +17,9 @@ def initialize_robot(server):
         Args:
             server (:obj: `Server`): The main server
     """
+    # Identify GPIOs by physical location
+    GPIO.setmode(GPIO.BOARD)
+
     direction = Direction()
     server.subscribe(direction)
 
